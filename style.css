@@ -1,0 +1,53 @@
+.container {
+    width: 160px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #d1e8eb; 
+    border: 1px solid #014d0b; 
+    border-radius: 19px; 
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.numero {
+    font-size: 24px;
+    font-weight: bold;
+    color: #004d40;
+}
+
+.simbolo {
+    font-size: 48px;
+    font-weight: bold;
+    color: #00796b;
+    margin: 10px 0;
+}
+
+.nome {
+    font-size: 19.2px;
+    color: #004d40;
+}
+
+.familia{
+    font-size: 16px;
+    color: #004d40;
+
+}
+
+.massa{
+    font-size: 16px;
+    color: #004d40;
+
+}
+
+.estado{
+    font-size: 16px;
+    color: #004d40;
+}
+
+
+
+
