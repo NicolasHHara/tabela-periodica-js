@@ -48,6 +48,13 @@
     color: #004d40;
 }
 
+.tabela-periodica {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr); 
+    gap: 10px;
+    padding: 20px;
+}
+
 
 
 
