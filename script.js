@@ -1,27 +1,58 @@
-function renderTabelePeriodica(){
-    const tabelaPeriodica = document.getElementById('tabelaPeriodica');
 
-    let dadoLinha = '';
+//função para carregar os dados do arquivo JSON
+async function carregarDados() {
+    try {
+        //carrega arquivo json
+        const response = await fetch('dados.json');
+        const elementos = await response.json();
+        renderTabelaPeriodica(elementos);
+    } catch (error) {
+        console.error('Erro ao carregar os dados:', error);
+    }
+}
+function renderTabelaPeriodica(elementos) {
+    //cria tabela
+    const tabelaPeriodica = document.createElement('table');
+    tabelaPeriodica.classList.add('tabela-periodica');
+
+    //cria linhas
     for (let linha = 1; linha <= 7; linha++) {
-        // abre a tr
-        dadoLinha = linha+'TR';
-        let dadoColuna = '';
-        for (let coluna = 1; coluna <= 18; coluna++) {
-            dadoColuna = coluna+'TD';
-            dadoColuna.innerHTML = `
-        <div class="numero">1</div>
-        <div class="simbolo">H</div>
-        <div class="nome">Hidrogênio</div>
-        <div class="familia">Não-metal</div>
-        <div class="massa">1.008</div>
-        <div class="estado">Gasoso</div>`;
-            console.log(dadoLinha+dadoColuna);    
-        }
-        // fecha tr
-    }    
+        const linhas = document.createElement('tr');
+        linhas.classList.add('tabelaLinha');
 
+        for (let coluna = 1; coluna <= 18; coluna++) {
+            //cria colunas
+            const colunas = document.createElement('td');
+            colunas.classList.add('tabelaColuna');
+
+            //encontra o elemento
+            const elemento = elementos.find(
+                (el) => el.linha === linha && el.coluna === coluna
+            );
+
+            if (elemento) {
+                colunas.innerHTML = `
+                    <div class="container" style="background-color: #${elemento.corHexCpk || 'FFFFFF'}">
+                        <div class="numero">${elemento.numeroAtomico}</div>
+                        <div class="simbolo">${elemento.simbolo}</div>
+                        <div class="nome">${elemento.nome}</div>
+                        <div class="massa">${elemento.densidade}</div>
+                    </div>
+                `;
+            }
+
+            //coluna vira filho da linha
+            linhas.appendChild(colunas);
+        }
+
+        //linha vira filho da tabela
+        tabelaPeriodica.appendChild(linhas);
+    }
+
+    const main = document.querySelector('main');
+    //tabela vira filho do main
+    main.appendChild(tabelaPeriodica);
 }
 
-
-
-renderTabelePeriodica();
+//executa a funcao carregarDados
+carregarDados();

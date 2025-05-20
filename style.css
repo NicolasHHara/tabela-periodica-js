@@ -1,69 +1,44 @@
 
 .container {
-    width: 160px;
-    height: 200px;
+    display: flex;
+    width: 6rem;
+    height: 6rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #d1e8eb; 
-    border: 1px solid #014d0b; 
-    border-radius: 19px; 
+    background-color: #d1e8eb;
+    border: 1px solid #014d0b;
+    border-radius: 19px;
     font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 20px auto;
+    margin: 1px ;
+}
+
+.container :hover {
+    cursor: pointer;
 }
 
 .numero {
-    font-size: 24px;
+    margin-left: 8px;
+    margin-top: 4px;
+    font-size: 15px;
     font-weight: bold;
     color: #004d40;
 }
 
 .simbolo {
-    font-size: 48px;
+    font-size: 30px;
     font-weight: bold;
     color: #00796b;
-    margin: 10px 0;
+    margin-top: 0;
+    text-align: center;
 }
 
 .nome {
-    font-size: 19.2px;
-    color: #004d40;
-}
-
-.familia{
+    text-align: center;
     font-size: 16px;
     color: #004d40;
-
 }
 
 .massa{
-    font-size: 16px;
-    color: #004d40;
-
+    text-align: center;
 }
 
-.estado{
-    font-size: 16px;
-    color: #004d40;
-}
-
-.tabela-periodica {
-    display: grid;
-    grid-template-columns: repeat(18, 1fr); 
-    gap: 10px;
-    padding: 20px;
-}
-
-
-
-
-
-*{
-    margin: 0;
-    padding: 0;
-}
-table td{
-    border: 1px solid black;
-}
