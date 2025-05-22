@@ -2837,18 +2837,20 @@ const colecaoElementos = [
 ]
 
 colecaoElementos.forEach(e => {
-  if (!e.corGrupo) {
-    if (e.grupo === 'metal alcalino') e.corGrupo = '#FF5733';
-    else if (e.grupo === 'metal alcalino-terroso') e.corGrupo = '#00C853'; // verde escuro vibrante
-    else if (e.grupo === 'lantanídeo') e.corGrupo = '#FFD700';
-    else if (e.grupo === 'actinoid') e.corGrupo = '#FF33A8';
-    else if (e.grupo === 'metal de transição') e.corGrupo = '#3380FF';
-    else if (e.grupo === 'metal') e.corGrupo = '#AAAAAA';
-    else if (e.grupo === 'metalóide') e.corGrupo = '#00FFD0';
-    else if (e.grupo === 'não metal') e.corGrupo = '#00FF00';
-    else if (e.grupo === 'halogênio') e.corGrupo = '#FF00FF';
-    else if (e.grupo === 'gás nobre') e.corGrupo = '#FFD600'; // amarelo forte
-    else if (e.grupo === 'post-transition metal') e.corGrupo = '#FF9800';
-    else e.corGrupo = '#CCCCCC'; // cor padrão para grupos desconhecidos
+    if (!e.corGrupo) {
+      if (e.grupo === 'metal alcalino') e.corGrupo = '#e57373'; // vermelho claro
+      else if (e.grupo === 'metal alcalino-terroso') e.corGrupo = '#81c784'; // verde médio
+      else if (e.grupo === 'lantanídeo') e.corGrupo = '#ba68c8'; // roxo suave
+      else if (e.grupo === 'actinoid') e.corGrupo = '#f06292'; // rosa vibrante
+      else if (e.grupo === 'metal de transição') e.corGrupo = '#64b5f6'; // azul claro
+      else if (e.grupo === 'metal') e.corGrupo = '#90a4ae'; // cinza azulado
+      else if (e.grupo === 'metalóide') e.corGrupo = '#4db6ac'; // verde água
+      else if (e.grupo === 'não metal') e.corGrupo = '#aed581'; // verde limão suave
+      else if (e.grupo === 'halogênio') e.corGrupo = '#ffb74d'; // laranja suave
+      else if (e.grupo === 'gás nobre') e.corGrupo = '#ffd54f'; // amarelo suave
+      else if (e.grupo === 'post-transition metal') e.corGrupo = '#a1887f'; // marrom acinzentado
+      else e.corGrupo = '#eeeeee'; // cor neutra padrão
+    }
+    
   }
-});
+);
