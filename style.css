@@ -1,11 +1,13 @@
+
 .tabela-periodica {
     border-spacing: 8px;
-    
 }
+
 
 .tabelaLinha {
     height: 80px;
 }
+
 
 .tabelaColuna {
     width: 80px;
@@ -23,60 +25,87 @@
     align-items: center;
     height: 70px;
     width: 70px;
-    background-color: #d1e8eb;
-    border: 1px solid #00796b;
-    border-radius: 2px;
+    background-color: #e0f7fa;
+    border: 1px solid #009688;
+    border-radius: 6px;
     font-family: Arial, sans-serif;
-    
-}
-.container :hover{
-    cursor: pointer;
-    
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
+.container:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 150, 136, 0.3);
+}
 
 
 .numero {
     font-size: 0.8rem;
     font-weight: bold;
-    color: #004d40;
+    color: #00695c;
 }
 
+
 .simbolo {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: bold;
     color: #ffffff;
-    padding: 2px 6px;
-    border-radius: 6px;
+    padding: 4px 10px;
+    border-radius: 8px;
 }
 
 .nome {
     font-size: 0.7rem;
-    color: #004d40;
+    margin-top: -5px;
+    
 }
 
 .massa {
-    font-size: 0.6rem;
-    color: #333;
+    font-size: 0.5rem;
+    color: #424242;
 }
+
+
+
+.containerTabela {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    z-index: 9999;
+    top: 108px;
+    left: 190px;
+    height: 18%;
+    width: 45%;
+    padding: 0.5rem;
+    background-color: #ffffff;
+    border: 1px solid #009688;
+    border-radius: 7px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+}
+
+
+
+.numeroTabela {
+    font-size: 1.2rem;
+    
+    margin-bottom: 10px;
+}
+
+
+.simboloTabela {
+    font-size: 6rem;
+    font-weight: bold;
+  
+    text-align: center;
+    float: left;
+    width: 25%;
+}
+
 
 .tabelaElemento {
-    
-    padding: 1rem;
     width: 100%;
-    height: 10px;
-    margin: 1rem auto;
+    padding: 1rem;
     border-radius: 12px;
-    margin-right: 0;
-    margin-left: 0;    
-}
-
-.containerTabela{
-
-width: 90px;
-height: 90px;
-
-
-
-
+    margin: 1rem auto 0 auto;
+    box-sizing: border-box;
 }

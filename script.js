@@ -11,10 +11,15 @@ async function carregarDados() {
     }
 }
 */
+let visorElemento;
 
 function renderTabelaPeriodica(elementos) {
     const tabela = document.createElement('table');
     tabela.classList.add('tabela-periodica');
+
+    // Criar visor apenas uma vez
+    visorElemento = document.createElement('div');
+    visorElemento.classList.add('visorElemento');
 
     for (let linha = 1; linha <= 10; linha++) {
         const tr = document.createElement('tr');
@@ -50,30 +55,21 @@ function renderTabelaPeriodica(elementos) {
         tabela.appendChild(tr);
     }
 
+    tabela.appendChild(visorElemento);
+
     const main = document.querySelector('main');
     main.appendChild(tabela);
 }
 
 function mostrarDadosElemento(elemento) {
-  
-    const existente = document.querySelector('.tabelaElemento');
-    if (existente) {
-        existente.remove();
-    }
-
-    const painel = document.createElement('div');
-    painel.classList.add('tabelaElemento');
-    painel.innerHTML = `
+    visorElemento.innerHTML = `
         <div class="containerTabela" style="background-color: ${elemento.corGrupo || '#FFFFFF'}">
-            <div class="numeroTabela">${elemento.numeroAtomico}</div>
             <div class="simboloTabela">${elemento.simbolo}</div>
-            <div class="nomeTabela">${elemento.nome}</div>
+            <div class="numeroTabela">${elemento.nome}</div>
+            <div class="nomeTabela">${elemento.grupo}</div>
             <div class="massaTabela">${elemento.massaAtomica}</div>
         </div>
     `;
-    
-    document.querySelector('main').appendChild(painel);
 }
-
 
 renderTabelaPeriodica(colecaoElementos);
