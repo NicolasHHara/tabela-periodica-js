@@ -71,8 +71,7 @@ function mostrarDadosElemento(elemento) {
             <div class="massaTabela">${elemento.massaAtomica}</div>
         </div>
     `;
-
-   
+    
     document.querySelector('main').appendChild(painel);
 }
 
