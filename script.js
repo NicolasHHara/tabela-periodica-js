@@ -65,9 +65,9 @@ function mostrarDadosElemento(elemento) {
     visorElemento.innerHTML = `
         <div class="containerTabela" style="background-color: ${elemento.corGrupo || '#FFFFFF'}">
             <div class="simboloTabela">${elemento.simbolo}</div>
-            <div class="numeroTabela">${elemento.nome}</div>
-            <div class="nomeTabela">${elemento.grupo}</div>
-            <div class="massaTabela">${elemento.massaAtomica}</div>
+            <div class="nomeTabela">Nome Do Elemento: ${elemento.nome}</div>
+            <div class="grupoTabela">Grupo Do Elemento: ${elemento.grupo}</div>
+            <div class="estadoElemento">Estado Padrão Do Elemento: ${elemento.estadoPadrao}</div>
         </div>
     `;
 }
