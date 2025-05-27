@@ -13,6 +13,9 @@ async function carregarDados() {
 */
 let visorElemento;
 
+let aside = document.createElement('aside');
+aside.classList.add('aside');
+
 function renderTabelaPeriodica(elementos) {
     const tabela = document.createElement('table');
     tabela.classList.add('tabela-periodica');
@@ -61,6 +64,7 @@ function renderTabelaPeriodica(elementos) {
     main.appendChild(tabela);
 }
 
+
 function mostrarDadosElemento(elemento) {
     visorElemento.innerHTML = `
         <div class="containerTabela" style="background-color: ${elemento.corGrupo || '#FFFFFF'}">
@@ -72,4 +76,10 @@ function mostrarDadosElemento(elemento) {
     `;
 }
 
+function renderAside(){
+    
+
+}
+
 renderTabelaPeriodica(colecaoElementos);
+
