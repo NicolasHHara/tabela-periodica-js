@@ -12,9 +12,8 @@ async function carregarDados() {
 }
 */
 let visorElemento;
+let asideArray = [];
 
-let aside = document.createElement('aside');
-aside.classList.add('aside');
 
 function renderTabelaPeriodica(elementos) {
     const tabela = document.createElement('table');
@@ -48,6 +47,7 @@ function renderTabelaPeriodica(elementos) {
                 `;
 
                 div.addEventListener('click', () => mostrarDadosElemento(elemento));
+                div.addEventListener('click', () => renderAside(elemento));
 
                 td.appendChild(div);
             }
@@ -77,9 +77,23 @@ function mostrarDadosElemento(elemento) {
 }
 
 function renderAside(){
-    
+    let asideContainer = document.createElement('aside');
+    asideContainer.classList.add('aside');
 
+    if(elemento){
+        let elementoAside = document.createElement('div');
+        asideArray.push(elementoAside);
+    }
+    aside.innerHTML = `
+    <div class = "containerAside">
+        <h1 class = "tituloAside">Carrinho Aside</h1>
+    </div>`;
+    document.body.appendChild(aside);
 }
+
+
+
 
 renderTabelaPeriodica(colecaoElementos);
 
+renderAside();
