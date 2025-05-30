@@ -13,13 +13,12 @@ async function carregarDados() {
 */
 let visorElemento;
 let asideArray = [];
-
+let asideContainer;
 
 function renderTabelaPeriodica(elementos) {
     const tabela = document.createElement('table');
     tabela.classList.add('tabela-periodica');
 
-    // Criar visor apenas uma vez
     visorElemento = document.createElement('div');
     visorElemento.classList.add('visorElemento');
 
@@ -46,8 +45,10 @@ function renderTabelaPeriodica(elementos) {
                     <div class="massa">${elemento.massaAtomica}</div>
                 `;
 
-                div.addEventListener('click', () => mostrarDadosElemento(elemento));
-                div.addEventListener('click', () => renderAside(elemento));
+                div.addEventListener('click', () => {
+                    mostrarDadosElemento(elemento);
+                    adicionarAoAside(elemento);
+                });
 
                 td.appendChild(div);
             }
@@ -64,7 +65,6 @@ function renderTabelaPeriodica(elementos) {
     main.appendChild(tabela);
 }
 
-
 function mostrarDadosElemento(elemento) {
     visorElemento.innerHTML = `
         <div class="containerTabela" style="background-color: ${elemento.corGrupo || '#FFFFFF'}">
@@ -76,24 +76,29 @@ function mostrarDadosElemento(elemento) {
     `;
 }
 
-function renderAside(){
-    let asideContainer = document.createElement('aside');
+function criarAside() {
+    asideContainer = document.createElement('aside');
     asideContainer.classList.add('aside');
-
-    if(elemento){
-        let elementoAside = document.createElement('div');
-        asideArray.push(elementoAside);
-    }
-    aside.innerHTML = `
-    <div class = "containerAside">
-        <h1 class = "tituloAside">Carrinho Aside</h1>
-    </div>`;
-    document.body.appendChild(aside);
+    asideContainer.innerHTML = `
+        <div class="containerAside">
+            <h1 class="tituloAside">Carrinho Aside</h1>
+            <div class="itensAside" id="itensAside"></div>
+        </div>
+    `;
+    document.body.appendChild(asideContainer);
 }
 
+function adicionarAoAside(elemento) {
+    const Container = document.getElementById('itensAside');
 
-
+    const elementoAside = document.createElement('div');
+    elementoAside.classList.add('itemElemento');
+    elementoAside.innerHTML = `
+        <p>${elemento.simbolo} - ${elemento.nome}</p>
+    `;
+    asideArray.push(elementoAside);
+    asideContainer.appendChild(elementoAside);
+}
 
 renderTabelaPeriodica(colecaoElementos);
-
-renderAside();
+criarAside();
