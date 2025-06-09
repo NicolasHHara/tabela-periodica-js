@@ -103,3 +103,18 @@ h1{
 body.modal-aberto {
     overflow: hidden;
 }
+
+
+#elemento{
+
+background-color: #fe5959;
+
+}
+
+#num-atomico{
+    background-color: #fe5959;
+}
+
+#nome{
+    background-color: #fe5959;
+}
