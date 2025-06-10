@@ -1,4 +1,3 @@
-
 /*função para carregar os dados do arquivo JSON
 async function carregarDados() {
     try {
@@ -12,24 +11,33 @@ async function carregarDados() {
 }
 */
 
+//visor que aparece o Elemento
 let visorElemento;
 
+//array que armazena os produtos
 let asideArray = [];
 
+//container criado ao lado o Carrinho
 let asideContainer;
 
+
+//funcao para gerar a tabela Periodica
 function renderTabelaPeriodica(elementos) {
 
+    //cria uma table com a classe de 'tabela-periodica'
     const tabela = document.createElement('table');
     tabela.classList.add('tabela-periodica');
 
     const main = document.querySelector('main');
 
+    //cria uma div com a funcao de visor e adiciona a classe 'visorElemento'
     visorElemento = document.createElement('div');
     visorElemento.classList.add('visorElemento');
 
+    //torna a variavel main pai do visor
     main.appendChild(visorElemento);
 
+    //cria um laco de repeticao para gerar as colunas e linhas da tabela
     for (let linha = 1; linha <= 10; linha++) {
         const tr = document.createElement('tr');
         tr.classList.add('tabelaLinha');
@@ -38,19 +46,24 @@ function renderTabelaPeriodica(elementos) {
             const td = document.createElement('td');
             td.classList.add('tabelaColuna');
 
+            //acha os elemntos na pasta do lado
             const elemento = elementos.find(
                 (el) => el.linha === linha && el.coluna === coluna
             );
-          
+            
+            //cria uma condicao
             if (elemento) {
+                //cria uma div, adiciona uma classe 'container' e da cor a ele
                 const div = document.createElement('div');
                 div.classList.add('container');
                 div.style.backgroundColor = elemento.corGrupo || '#FFFFFF';
 
+                //cria os elementos podendo arrastar
                 const innerDiv = document.createElement('div');
                 innerDiv.draggable = true;
                 innerDiv.ondragstart = dragstart_handler;
 
+                //adiona a div no HTML
                 innerDiv.innerHTML = `
                     <div class="numero">${elemento.numeroAtomico}</div>
                     <div class="simbolo">${elemento.simbolo}</div>
@@ -58,21 +71,27 @@ function renderTabelaPeriodica(elementos) {
                     <div class="massa">${elemento.massaAtomica}</div>
                 `;
 
+                //adiciona uma evento de click para a div arrastavel
                 innerDiv.addEventListener('click', () => {
                     mostrarDadosElemento(elemento);
                     adicionarAoAside(elemento);
                 });
 
+                //torna as divs 'innerDiv' filha da div 'div', e a 'div' filha da 'td'
                 div.appendChild(innerDiv);
                 td.appendChild(div);
             }
+            //'tr' vira pai da 'td'
             tr.appendChild(td);
         }
+        //'tabela' vira pai do 'tr'
         tabela.appendChild(tr);
     }
+    //'main' vira pai da 'tablela'
     main.appendChild(tabela);
 }
 
+//funcao de renderizar os elementos no aside
 function mostrarDadosElemento(elemento) {
     visorElemento.innerHTML = `
         <div class="containerTabela" style="background-color: ${elemento.corGrupo || '#FFFFFF'}">
@@ -84,6 +103,7 @@ function mostrarDadosElemento(elemento) {
     `;
 }
 
+//funcao para criar o aside
 function criarAside() {
     asideContainer = document.createElement('aside');
     asideContainer.classList.add('aside');
@@ -114,7 +134,6 @@ function dragstart_handler(event) {
     console.log("dragStart");
     event.dataTransfer.setData("text/plain", event.target.className);
 }
-
 
 criarAside();
 renderTabelaPeriodica(colecaoElementos);

@@ -25,21 +25,23 @@ body {
     border: 1px solid #ccc;
 }
 
-.elemento {
-    padding: 3px; 
-    border-radius: 3px; 
-    font-size: 12px; 
+.container {
+    padding: 0.5vh; 
+    border-radius: 1vh; 
+    font-size: 1.2vh; 
     color: #fff;
     text-align: center;
     cursor: pointer;
+    height: 6.7vh;
+    width: 3.4vw;
 }
 
-.elemento p {
+.container p {
     margin: 0;
     font-size: 10px; 
 }
 
-.elemento:hover {
+.container:hover {
     transform: scale(1.05); 
     transition: transform 0.2s;
 }
